@@ -35,9 +35,10 @@ def texture_discriptor(img_gray=None, P=8, R=1):
 
 
 directory = 'images/'
-image_BGR = cv2.imread(directory+'2.jpg')
+image_BGR = cv2.imread(directory+'1.jpg')
 image_RGB = cv2.cvtColor(image_BGR, cv2.COLOR_BGR2RGB)
 image_gray = cv2.cvtColor(image_RGB, cv2.COLOR_RGB2GRAY)
+cv2.imwrite(directory+'1_gray.jpg', image_gray)
 
 # you can change these two parameters base on article
 P_param = 8
