@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
+
 # این کد روش استخراج ویژگی در یکی از مقاله ها را مشخص می کند. عنوان مقاله در زیر آمده است.
 # A locally based feature descriptor for abnormalities detection
 def texture_discriptor(img_gray=None, P=8, R=1):
@@ -35,10 +36,10 @@ def texture_discriptor(img_gray=None, P=8, R=1):
 
 
 directory = 'images/'
-image_BGR = cv2.imread(directory+'1.jpg')
+image_BGR = cv2.imread(directory + '1.jpg')
 image_RGB = cv2.cvtColor(image_BGR, cv2.COLOR_BGR2RGB)
 image_gray = cv2.cvtColor(image_RGB, cv2.COLOR_RGB2GRAY)
-cv2.imwrite(directory+'1_gray.jpg', image_gray)
+cv2.imwrite(directory + '1_gray.jpg', image_gray)
 
 # you can change these two parameters base on article
 P_param = 8
@@ -49,16 +50,25 @@ R, G, B = cv2.split(image_RGB)
 texture_R = texture_discriptor(img_gray=R, P=P_param, R=R_param)
 texture_G = texture_discriptor(img_gray=G, P=P_param, R=R_param)
 texture_B = texture_discriptor(img_gray=B, P=P_param, R=R_param)
-texture_RGB = cv2.merge((texture_R, texture_G, texture_B))
 
 # get texture of gray image
 texture_gray = texture_discriptor(img_gray=image_gray, P=P_param, R=R_param)
 
-cv2.imwrite(directory+'texture_R.jpg', texture_R)
-cv2.imwrite(directory+'texture_G.jpg', texture_G)
-cv2.imwrite(directory+'texture_B.jpg', texture_B)
-cv2.imwrite(directory+'texture_RGB.jpg', texture_RGB)
-cv2.imwrite(directory+'texture_gray.jpg', texture_gray)
+# normalize images
+texture_R = cv2.normalize(texture_R, None, alpha=0, beta=200, norm_type=cv2.NORM_MINMAX)
+texture_G = cv2.normalize(texture_G, None, alpha=0, beta=200, norm_type=cv2.NORM_MINMAX)
+texture_B = cv2.normalize(texture_B, None, alpha=0, beta=200, norm_type=cv2.NORM_MINMAX)
+texture_gray = cv2.normalize(texture_gray, None, alpha=0, beta=200, norm_type=cv2.NORM_MINMAX)
+
+# make an RGB texture
+texture_RGB = cv2.merge((texture_R, texture_G, texture_B))
+
+# save images
+cv2.imwrite(directory + 'texture_R.jpg', texture_R)
+cv2.imwrite(directory + 'texture_G.jpg', texture_G)
+cv2.imwrite(directory + 'texture_B.jpg', texture_B)
+cv2.imwrite(directory + 'texture_RGB.jpg', texture_RGB)
+cv2.imwrite(directory + 'texture_gray.jpg', texture_gray)
 
 plt.subplot(2, 5, 1), plt.axis("off"), plt.imshow(image_RGB, cmap='gray'), plt.title('RGB')
 plt.subplot(2, 5, 2), plt.axis("off"), plt.imshow(image_gray, cmap='gray'), plt.title('gray')
