@@ -7,7 +7,7 @@ This code implements the part of the article that introduces a texture feature a
 
 Here is an exmaple of input and output.
 
-orginal image             |  image number 3, using s=5 and m=24
+input image             |  output image
 :-------------------------:|:-------------------------:
-![](https://github.com/bardiadelagah/Contrast_Stretching/blob/main/9.jpg)  |  ![](https://github.com/bardiadelagah/Contrast_Stretching/blob/main/3.jpg)
+![](https://github.com/bardiadelagah/A_locally_based_feature_descriptor_for_abnormalities_detection/blob/main/images/1_gray.jpg)  |  ![](https://github.com/bardiadelagah/A_locally_based_feature_descriptor_for_abnormalities_detection/blob/main/images/texture_gray.jpg)
 
