@@ -9,5 +9,6 @@ Here is an exmaple of input and output.
 
 input image             |  output image
 :-------------------------:|:-------------------------:
-![](https://github.com/bardiadelagah/A_locally_based_feature_descriptor_for_abnormalities_detection/blob/main/images/1_gray.jpg)  |  ![](https://github.com/bardiadelagah/A_locally_based_feature_descriptor_for_abnormalities_detection/blob/main/images/texture_gray.jpg)
+![](https://github.com/bardiadelagah/A_locally_based_feature_descriptor_for_abnormalities_detection/blob/main/images/1_gray.jpg)  |  
+![](https://github.com/bardiadelagah/A_locally_based_feature_descriptor_for_abnormalities_detection/blob/main/images/texture_gray.jpg)
 
